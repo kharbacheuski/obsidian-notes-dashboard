@@ -1,0 +1,30 @@
+# IDE
+*.iml
+.idea
+.nova
+.vscode
+
+# npm
+node_modules
+package-lock.json
+yarn.lock
+
+# build
+out
+dist
+*.js.map
+
+# obsidian
+data.json
+.obsidian
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Tests
+tests/vault
