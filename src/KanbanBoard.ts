@@ -85,7 +85,7 @@ export default class KanbanBoard {
 
         let committed = false;
 
-        const commit = async () => {
+        const commit = () => {
             if (committed) return;
             committed = true;
 
@@ -94,7 +94,7 @@ export default class KanbanBoard {
 
             if (!name) return;
 
-            await this.updateBoard(fm => actions.column.create(fm, name));
+            void this.updateBoard(fm => actions.column.create(fm, name));
         };
 
         textInput.inputEl.addEventListener("keydown", e => {
