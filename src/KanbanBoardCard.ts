@@ -1,4 +1,4 @@
-import { App, Notice, TFile } from "obsidian";
+import { App, TFile } from "obsidian";
 import actions from "./utils/actions.utils";
 import { createIconButton } from "./utils/dom.utils";
 
@@ -30,12 +30,12 @@ export default class KanbanBoardCard {
             fileTags.forEach(tag => tagsEl.createSpan({cls: "kanban-card-tag", text: tag}));
         }
 
-        createIconButton(this.card, "x", async () => {
-            await this.updateBoard(fm => actions.card.remove(fm, column.name, file.basename));
+        createIconButton(this.card, "x", () => {
+            void this.updateBoard(fm => actions.card.remove(fm, column.name, file.basename));
         })
 
         this.card.addEventListener("click", () => {
-            this.app.workspace.openLinkText(file.path, "", true);
+            void this.app.workspace.openLinkText(file.path, "", true);
         });
     }
 }

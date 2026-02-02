@@ -1,4 +1,4 @@
-import { App, Notice, TFile, TextComponent, setIcon  } from "obsidian";
+import { App, Notice, TFile, TextComponent } from "obsidian";
 import { updateFrontmatter } from "./utils/frontmatter.utils";
 import actions from "./utils/actions.utils";
 import { CURRENT_LOCALE } from "./locale";
@@ -28,8 +28,8 @@ export default class KanbanBoard {
     private render(host: HTMLElement): HTMLElement {
         const fm = this.getFrontmatter();
 
-        const wrapper = host.createDiv({cls: "kanban-board-wrapper"})!;
-        const board = wrapper?.createDiv({cls: "kanban-board"})!;
+        const wrapper = host.createDiv({cls: "kanban-board-wrapper"});
+        const board = wrapper?.createDiv({cls: "kanban-board"});
 
         const columns = fm.columns ?? [];
 
@@ -71,7 +71,7 @@ export default class KanbanBoard {
         if (!this.root) return;
         if (this.root.querySelector(".kanban-column--editing")) return;
 
-        const board = this.root.querySelector(".kanban-board") as HTMLDivElement | null;
+        const board = this.root.querySelector(".kanban-board");
         if (!board) return;
 
         const column = board.createDiv({cls: "kanban-column --editing"});
@@ -85,7 +85,7 @@ export default class KanbanBoard {
 
         let committed = false;
 
-        const commit = () => {
+        const commit = async () => {
             if (committed) return;
             committed = true;
 
@@ -94,7 +94,7 @@ export default class KanbanBoard {
 
             if (!name) return;
 
-            this.updateBoard(fm => actions.column.create(fm, name));
+            await this.updateBoard(fm => actions.column.create(fm, name));
         };
 
         textInput.inputEl.addEventListener("keydown", e => {

@@ -32,17 +32,17 @@ export default class KanbanBoardColumn {
         const columnActions = header.createDiv({cls: "kanban-column-actions"});
 
         createIconButton(columnActions, "plus", () => this.openAddNoteModal(column))
-        createIconButton(columnActions, "trash", async (e) => {
-            await this.updateBoard(fm => actions.column.remove(fm, column.name))
+        createIconButton(columnActions, "trash", () => {
+            void this.updateBoard(fm => actions.column.remove(fm, column.name))
         })
                 
         return header;
     }
 
     private openAddNoteModal(column: KanbanColumn) {
-        const modal = new AddNoteModal(this.app, async file => {
+        const modal = new AddNoteModal(this.app, file => {
             if (!file) return;
-            await this.updateBoard(fm =>
+            void this.updateBoard(fm =>
                 actions.card.create(fm, column.name, file.basename),
             );
         })

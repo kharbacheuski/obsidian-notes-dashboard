@@ -7,15 +7,6 @@ export default class KanbanDashboardPlugin extends Plugin {
     private rerenderScheduled = new Set<string>();
 
     onload() {
-        this.addCommand({
-            id: "open-notesdashboard-note",
-            name: CURRENT_LOCALE.openNote,
-            callback: () => {
-                const file = this.app.workspace.getActiveFile();
-                if (file) this.app.workspace.getLeaf(false).openFile(file);
-            },
-        });
-
         this.registerMarkdownPostProcessor((el, ctx) => {
             if (el.querySelector(".kanban-board-wrapper")) return;
 
@@ -41,6 +32,12 @@ export default class KanbanDashboardPlugin extends Plugin {
             }
 
             dashboard.mount(el);
+
+            this.addCommand({
+                id: "open-notesdashboard-note",
+                name: CURRENT_LOCALE.openNote,
+                callback: () => void this.app.workspace.getLeaf(false).openFile(file)
+            });
         });
     }
 
