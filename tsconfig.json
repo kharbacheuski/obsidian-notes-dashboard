@@ -5,6 +5,7 @@
 		"inlineSources": true,
 		"module": "ESNext",
 		"target": "es2021",
+		"jsx": "react-jsx",
 		"allowJs": true,
 		"noImplicitAny": false,
 		"moduleResolution": "bundler",

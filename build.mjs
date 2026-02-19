@@ -29,7 +29,7 @@ async function generateContext(mode) {
 			break;
 	}
 	
-	inPath = inPath || "./src/main.ts";
+	inPath = inPath || "./src/main.tsx";
 	outPath = outPath || "./out/main.js";
 	outDir = dirname(outPath);
 	plugins = [

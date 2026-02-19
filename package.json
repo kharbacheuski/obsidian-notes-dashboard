@@ -15,6 +15,11 @@
 		"obsidian": "^1.11.0"
 	},
 	"devDependencies": {
+		"@types/react": "^19.2.14",
+		"@types/react-dom": "^19.2.3",
+		"lucide-react": "^0.574.0",
+		"react": "^19.2.4",
+		"react-dom": "^19.2.4",
 		"@jgoz/esbuild-plugin-typecheck": "^3.0.2",
 		"esbuild": "^0.17.0",
 		"esbuild-plugin-copy": "^2.1.1",

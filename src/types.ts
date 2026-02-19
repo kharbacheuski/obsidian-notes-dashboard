@@ -1,14 +1,19 @@
-import {FrontMatterCache} from "obsidian"
+import {FrontMatterCache, TFile} from "obsidian"
 declare global {
 	interface KanbanColumn {
 		name: string;
-		pages?: string[];
+		pages: TFile[];
+	}
+
+	interface KanbanAbstractColumn {
+		name: string;
+		pages: string[];
 	}
 
 	interface DashboardFrontmatter extends FrontMatterCache {
 		dashboard?: boolean;
 		layout?: "kanban";
-		columns?: KanbanColumn[];
+		columns?: KanbanAbstractColumn[];
 		sort?: "modified" | "created" | "name";
 	}
 }
