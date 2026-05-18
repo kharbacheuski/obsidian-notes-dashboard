@@ -14,12 +14,12 @@
 }
 
 .kanban-board {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+
     gap: 16px;
     padding: 12px;
     overflow-x: auto;
-    width: 100%;
 }
 
 .kanban-board-empty {

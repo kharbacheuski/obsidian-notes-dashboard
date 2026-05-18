@@ -1,9 +1,10 @@
 import { App, TFile, Notice } from "obsidian";
 import { CURRENT_LOCALE } from "src/locale";
 
+
 export async function updateFrontmatter(app: App, file: TFile, updater: (fm: DashboardFrontmatter) => void): Promise<void> {
     try {
-        await app.fileManager.processFrontMatter(file, fm => {
+        await app.fileManager.processFrontMatter(file, (fm: DashboardFrontmatter) => {
             updater(fm)
         });
     } catch (error) {

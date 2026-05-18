@@ -1,5 +1,6 @@
-import { EN } from "./locale/en";
-import { RU } from "./locale/ru";
+import { getLanguage } from "obsidian";
+import { EN } from "./en";
+import { RU } from "./ru";
 
 export type Locale = typeof EN;
 
@@ -8,7 +9,7 @@ export const Locales: { [k: string]: Locale } = {
     ru: RU
 };
 
-let langCode: string = window.localStorage.getItem("language")
+let langCode: string = getLanguage()
     ?.toLowerCase()
     ?.split("-")[0] || "en";
 
