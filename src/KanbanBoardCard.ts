@@ -31,7 +31,7 @@ export default class KanbanBoardCard {
         }
 
         createIconButton(this.card, "x", () => {
-            void this.updateBoard(fm => actions.card.remove(fm, column.name, file.basename));
+            void this.updateBoard(fm => actions.card.remove(fm, column.name, file.path));
         })
 
         this.card.addEventListener("click", () => {

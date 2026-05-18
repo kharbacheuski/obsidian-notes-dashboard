@@ -1,7 +1,7 @@
 {
   "id": "notes-dashboard",
   "name": "Notes Dashboard",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "minAppVersion": "1.4.4",
   "description": "Dashboard with favorite notes as cards displayed in a Kanban-style board.",
   "author": "kharbacheuski",

@@ -5,24 +5,21 @@ export function getFilesForColumn(app: App, column: KanbanColumn, fm: DashboardF
     if (!column.pages?.length) return [];
 
     try {
-        const allFiles = app.vault.getFiles();
         const files: TFile[] = [];
 
-        for (const name of column.pages) {
-            const f = allFiles.find(file => file.basename === name);
-            if (f) files.push(f);
+        for (const filePath of column.pages) {
+            const file = app.vault.getFileByPath(filePath);
+            if (file) files.push(file);
         }
 
         const sorted = sortFiles(files, fm.sort);
-
         return sorted;
     } catch (error) {
         console.error(CURRENT_LOCALE.failedGettingFiles, error);
-        new Notice(CURRENT_LOCALE.failedGettingFiles)
+        new Notice(CURRENT_LOCALE.failedGettingFiles);
         return [];
     }
 }
-
 function sortFiles(files: TFile[], sort?: string): TFile[] {
     const sorted = [...files];
 

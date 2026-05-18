@@ -2,10 +2,6 @@
     display: none;
 }
 
-.props-hidden .markdown-preview-sizer {
-    max-width: 1250px !important;
-}
-
 .kanban-board-wrapper {
     display: flex;
     flex-direction: column;
@@ -14,7 +10,9 @@
 }
 
 .kanban-board {
-    display: flex;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     flex-wrap: wrap;
 
     gap: 16px;

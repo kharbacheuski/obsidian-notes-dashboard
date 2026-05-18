@@ -47,14 +47,14 @@ sort: modified
 columns:
   - name: To Do
     pages:
-      - My Note 1
-      - My Note 2
+      - /path/to/note/My Note 1
+      - /path/to/note/My Note 2
   - name: In Progress
     pages:
-      - My Note 3
+      - /path/to/note/My Note 3
   - name: Done
     pages:
-      - My Note 4
+      - /path/to/note/My Note 4
 cssclasses: props-hidden
 ---
 ```
@@ -113,9 +113,9 @@ layout: kanban
 columns:
   - name: Favorites
     pages:
-      - Daily Note
-      - Project Ideas
-      - Meeting Notes
+      - /path/to/note/Daily Note
+      - /path/to/note/Project Ideas
+      - /path/to/note/Meeting Notes
 ---
 ```
 
@@ -129,8 +129,8 @@ sort: name
 columns:
   - name: Recent
     pages:
-      - Note 1
-      - Note 2
+      - /path/to/note/Note 1
+      - /path/to/note/Note 2
 ---
 ```
 
@@ -138,11 +138,11 @@ columns:
 
 **Dashboard not rendering?**
 - Make sure `dashboard: true` is in the frontmatter
-- Check that the note names in `pages` match the actual file names (without extension)
+- Check that the note path in `pages` match the actual file path in vault
 - Try reloading Obsidian
 
 **Notes not appearing?**
-- Verify that the note names in the `pages` array match the exact basenames of files in your vault
+- Verify that the note pathes in the `pages` array match the exact file pathes of files in your vault
 - Check that the files exist and are accessible
 
 **Styling issues?**

@@ -43,7 +43,7 @@ export default class KanbanBoardColumn {
         const modal = new AddNoteModal(this.app, file => {
             if (!file) return;
             void this.updateBoard(fm =>
-                actions.card.create(fm, column.name, file.basename),
+                actions.card.create(fm, column.name, file.path),
             );
         })
         modal.open();
